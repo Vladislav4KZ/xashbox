@@ -1,0 +1,36 @@
+name: Deploy to GitHub
+os: linux
+dist: bionic
+sudo: true
+addons:
+  apt:
+    packages:
+      - python
+      - python3
+      - zip
+script:
+  - sh travis_scripts/encode_to_cp1251.sh
+  - export XASHBOX_NAME=xashbox-rus
+  - mkdir pakfolder && cp -r -t pakfolder touch userconfig.d xashbox
+  - curl https://raw.githubusercontent.com/FWGS/xash3d-fwgs/master/scripts/makepak.py > makepak.py
+  - python3 makepak.py pakfolder/ $XASHBOX_NAME.pak
+  - zip -r $XASHBOX_NAME.zip touch userconfig.d xashbox
+  - git clone https://github.com/$GIT_NAME/xashbox master
+  - export TRAVIS_BUILD_HOME=$TRAVIS_BUILD_DIR
+  - export TRAVIS_BUILD_DIR=$TRAVIS_BUILD_DIR/master
+  - export XASHBOX_NAME=xashbox
+  - cd $TRAVIS_BUILD_DIR
+  - rm -rf .git travis_scripts .travis.yml README.md
+  - cd .. && python3 makepak.py $TRAVIS_BUILD_DIR/ $XASHBOX_NAME.pak
+  - cd $TRAVIS_BUILD_DIR && zip -r $XASHBOX_NAME.zip touch userconfig.d xashbox
+  - mv $XASHBOX_NAME.zip $TRAVIS_BUILD_HOME
+after_script:
+      # Set up git user name and tag this commit
+      - git config --local user.name "$GIT_NAME"
+      - git config --local user.email "$GIT_EMAIL"
+      - export TRAVIS_TAG=${TRAVIS_TAG:-$(git log --format=%h -1)}
+      - git tag $TRAVIS_TAG
+      - cd $TRAVIS_BUILD_HOME
+      - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+      - export UPLOADTOOL_SUFFIX=$TRAVIS_TAG
+      - bash upload.sh xashbox.pak xashbox.zip xashbox-rus.pak xashbox-rus.zip
