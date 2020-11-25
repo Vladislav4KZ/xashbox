@@ -1,7 +1,5 @@
 name: Deploy to GitHub
 os: linux
-dist: bionic
-sudo: true
 addons:
   apt:
     packages:
