@@ -1,0 +1,26 @@
+name: Deploy Github Action
+
+on:
+  repository_dispatch:
+    types: [deploy_updated_workflow]
+
+jobs:
+
+  build:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - name: Run the actions/checkout
+      uses: actions/checkout@722adc6
+      
+    - name: Deploy GHA to WN-SDK-TEMPORARY
+      uses: MikeHamilton-RW/deploy-common-actions@v1.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GIT_NAME: ${{ secrets.GIT_NAME }}
+        USER: "$GIT_NAME"
+        REPOSITORY: "xashbox"
+        DEVELOPMENT_BRANCH: "github-workflow-test"
+        GHA_DEPLOYMENT_FOLDER: "$BUILD_HOME"
