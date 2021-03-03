@@ -1,2 +1,2 @@
-cd $TRAVIS_BUILD_DIR
+cd $BUILD_DIR
 rm -rf tmp README.md .travis.yml *.cfg
