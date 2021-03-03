@@ -9,7 +9,7 @@ sh $SCRIPT_DIR/cleanup.sh
 export XASHBOX_NAME=xashbox-rus
 sh $SCRIPT_DIR/makepak.sh
 sh $SCRIPT_DIR/makezip.sh
-cd $BUILD_HOME
+cd $BUILD_DIR
 mv $XASHBOX_NAME.zip $BUILD_HOME/$XASHBOX_NAME.zip
 mv $XASHBOX_NAME.pak $BUILD_HOME/$XASHBOX_NAME.pak
 cd $BUILD_HOME
