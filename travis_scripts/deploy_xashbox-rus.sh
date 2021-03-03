@@ -1,6 +1,9 @@
 rm -rf touch userconfig.d xashbox
 cd $BUILD_HOME
+echo CLONING REPOSITORY
 git clone -b xashbox-rus https://github.com/$GIT_NAME/xashbox xashbox-rus
+echo CHECKING AVAILABILITY
+ls -a
 cd xashbox-rus
 export BUILD_DIR=$PWD
 echo !!! CHECKING VARIABLE !!!
