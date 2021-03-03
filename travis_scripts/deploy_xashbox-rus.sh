@@ -3,6 +3,7 @@ cd $BUILD_HOME
 git clone -b xashbox-rus https://github.com/$GIT_NAME/xashbox xashbox-rus
 cd xashbox-rus
 export BUILD_DIR=$PWD
+ls $BUILD_HOME
 sh $SCRIPT_DIR/encode_to_cp1251.sh
 sh $SCRIPT_DIR/cleanup.sh
 export XASHBOX_NAME=xashbox-rus
