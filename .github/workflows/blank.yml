@@ -36,6 +36,7 @@ jobs:
           cd ..
           export BUILD_HOME=$PWD
           cd $BUILD_DIR
+          git config --local user.name "$GIT_NAME"
           sh travis_scripts/deploy_master.sh
           sh travis_scripts/deploy_xashbox-rus.sh
           export TRAVIS_TAG=${TRAVIS_TAG:-$(git log --format=%h -1)} 
