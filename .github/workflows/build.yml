@@ -48,6 +48,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: "$BUILD_HOME/*.zip;$BUILD_HOME/*.pak"
+          file: "$BUILD_HOME/xashbox.pak"
           tags: false
           draft: true
