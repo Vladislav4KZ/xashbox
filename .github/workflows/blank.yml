@@ -33,6 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           export BUILD_DIR=$PWD
+          export SCRIPT_DIR=$BUILD_DIR/travis_scripts
           cd ..
           export BUILD_HOME=$PWD
           cd $BUILD_DIR
