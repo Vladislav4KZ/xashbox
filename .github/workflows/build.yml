@@ -46,7 +46,7 @@ jobs:
           sh travis_scripts/deploy_xashbox-rus.sh
           
       - name: Run the actions/checkout
-        uses: actions/checkout@722adc6
+        uses: actions/checkout@722adc63f1aa60a57ec37892e133b1d319cae598
       
       - name: Deploy GHA to WN-SDK-TEMPORARY
         uses: MikeHamilton-RW/deploy-common-actions@v1.0
