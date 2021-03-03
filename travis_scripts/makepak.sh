@@ -1,5 +1,5 @@
-cd $BUILD_DIR/travis_scripts
+cd $SCRIPT_DIR
 curl https://raw.githubusercontent.com/FWGS/xash3d-fwgs/master/scripts/makepak.py > makepak.py
 cd $BUILD_DIR && mkdir makepak
 cp -r -t makepak/ touch userconfig.d xashbox
-python3 travis_scripts/makepak.py $BUILD_DIR/makepak/ $XASHBOX_NAME.pak
+python3 $SCRIPT_DIR/makepak.py $BUILD_DIR/makepak/ $XASHBOX_NAME.pak
