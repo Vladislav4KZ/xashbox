@@ -40,9 +40,6 @@ jobs:
           git config --local user.name "$GIT_NAME"
           sh travis_scripts/deploy_master.sh
           sh travis_scripts/deploy_xashbox-rus.sh
-          export TRAVIS_TAG=${TRAVIS_TAG:-$(git log --format=%h -1)} 
-          git tag $TRAVIS_TAG
           cd $BUILD_HOME
           wget -c https://github.com/Vladislav4KZ/uploadtool/raw/master/upload.sh
-          export UPLOADTOOL_SUFFIX=$TRAVIS_TAG
           bash upload.sh xashbox.pak xashbox.zip xashbox-rus.pak xashbox-rus.zip
