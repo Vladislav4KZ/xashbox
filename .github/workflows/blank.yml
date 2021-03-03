@@ -33,6 +33,10 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -a
+          echo home
+          ls $HOME
+          echo misc
+          ls /
           set
           sh travis_scripts/deploy_master.sh
           sh travis_scripts/deploy_xashbox-rus.sh
