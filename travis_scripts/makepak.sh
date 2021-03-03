@@ -1,3 +1,5 @@
+echo Making pak...
+
 cd $SCRIPT_DIR
 curl https://raw.githubusercontent.com/FWGS/xash3d-fwgs/master/scripts/makepak.py > makepak.py
 cd $BUILD_DIR && mkdir makepak
