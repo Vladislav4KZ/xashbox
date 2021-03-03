@@ -33,9 +33,11 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -a
-          echo home
+          cd ..
+          ls -a
+          echo Checking home...
           ls $HOME
-          echo misc
+          echo Checking misc...
           ls /
           set
           sh travis_scripts/deploy_master.sh
