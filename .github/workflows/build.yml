@@ -45,15 +45,11 @@ jobs:
           sh travis_scripts/deploy_master.sh
           sh travis_scripts/deploy_xashbox-rus.sh
           
-      - name: Run the actions/checkout
-        uses: actions/checkout@722adc63f1aa60a57ec37892e133b1d319cae598
-      
-      - name: Deploy GHA to WN-SDK-TEMPORARY
-        uses: MikeHamilton-RW/deploy-common-actions@v1.0
+      - name: Upload To Github Release
+        uses: xresloader/upload-to-github-release@v1.3.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIT_NAME: ${{ secrets.GIT_NAME }}
-          USER: "$GIT_NAME"
-          REPOSITORY: "xashbox"
-          DEVELOPMENT_BRANCH: "github-workflow-test"
-          GHA_DEPLOYMENT_FOLDER: "$BUILD_HOME"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: "*.zip;*.pak"
+          tags: true
+          draft: true
