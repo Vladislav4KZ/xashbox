@@ -42,4 +42,5 @@ jobs:
           sh travis_scripts/deploy_xashbox-rus.sh
           cd $BUILD_HOME
           wget -c https://github.com/Vladislav4KZ/uploadtool/raw/master/upload.sh
+          export UPLOADTOOL_SUFFIX=build
           bash upload.sh xashbox.pak xashbox.zip xashbox-rus.pak xashbox-rus.zip
