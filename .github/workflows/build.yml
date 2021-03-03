@@ -48,6 +48,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: "*.zip;*.pak"
+          file: "$BUILD_HOME/*.zip;$BUILD_HOME/*.pak"
           tags: false
           draft: true
