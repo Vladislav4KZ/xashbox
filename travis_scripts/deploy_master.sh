@@ -4,7 +4,3 @@ export XASHBOX_DIR=$BUILD_DIR
 sh cleanup.sh
 sh makepak.sh
 sh makezip.sh
-
-cd $BUILD_DIR
-mv $XASHBOX_NAME.zip $BUILD_HOME/$XASHBOX_NAME.zip
-mv $XASHBOX_NAME.pak $BUILD_HOME/$XASHBOX_NAME.pak
