@@ -44,3 +44,10 @@ jobs:
           wget -c https://github.com/Vladislav4KZ/uploadtool/raw/master/upload.sh
           export UPLOADTOOL_SUFFIX=build
           bash upload.sh xashbox.pak xashbox.zip xashbox-rus.pak xashbox-rus.zip
+          
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.8
+        with:
+          # Artifact name
+          name: xashbox.zip
+          path: "$BUILD_HOME/xashbox.zip"
