@@ -32,6 +32,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
+          ls -a
+          set
           sh travis_scripts/deploy_master.sh
           sh travis_scripts/deploy_xashbox-rus.sh
           export TRAVIS_TAG=${TRAVIS_TAG:-$(git log --format=%h -1)} 
