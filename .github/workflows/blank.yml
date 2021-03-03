@@ -48,4 +48,4 @@ jobs:
         with:
           # Artifact name
           name: xashbox.zip
-          path: "$BUILD_HOME/xashbox.zip"
+          path: $BUILD_HOME
