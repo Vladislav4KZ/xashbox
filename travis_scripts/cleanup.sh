@@ -1,2 +1,2 @@
 cd $BUILD_DIR
-rm -rf tmp README.md .travis.yml *.cfg
+rm -rf tmp README.md .travis.yml *.cfg .git makepak
